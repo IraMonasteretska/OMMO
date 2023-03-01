@@ -13,7 +13,7 @@ $(function () {
   });
 
     //  MENU MOBILE ------------------------------------ //
-    $('.submenu').children('a').on('click', function () {
+    $('.mobile__menu .submenu').children('a').on('click', function () {
       $(this).parent().children('.dropdown').slideToggle();
     });
 
