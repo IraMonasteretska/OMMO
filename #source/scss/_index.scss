@@ -27,8 +27,13 @@
     height: 100%;
     top: 0;
     left: 0;
-    object-fit: cover;
     z-index: -1;
+    video,
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .welcomescreen__wrapper {
@@ -91,6 +96,10 @@
     text-transform: uppercase;
     color: #222222;
     padding: 24px 50px;
+    transition: .3s;
+    &:hover{
+        filter: brightness(80%);
+    }
 }
 
 // ADVANTAGES -------------------------------------//
@@ -155,6 +164,24 @@
         }
     }
 }
+
+//  TESTIMONIALS SECTION ---------------------------- // 
+.testimonials{
+    padding: 110px 0;
+    background: #397659;
+}
+.testimonials__top{
+    margin-bottom: 70px;
+}
+.testimonials__title .section-title{
+    color: #fff;
+    &:before{
+        background: #E8BD4B;
+    }
+}
+
+
+
 
 //  CONTACTS SECTION ---------------------------- // 
 .contacts {

@@ -685,7 +685,13 @@
 
         <main class="main">
             <section class="welcomescreen">
-                <img class="welcomescreen__video" src="img/background video.jpg" alt="">
+                
+                <div class="welcomescreen__video">
+                    <!-- <img class="welcomescreen__video" src="img/background video.jpg" alt=""> -->
+                    <video autoplay muted loop>
+                        <source src="video/02.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <div class="container">
                     <div class="welcomescreen__wrapper">
                         <div class="welcomescreen__title" data-aos="fade-right">
@@ -787,7 +793,7 @@
                 </div>
             </section>
 
-            <!-- <section class="testimonials" id="testimonials">
+            <!-- <section class="testimonials">
                 <div class="container">
                     <div class="testimonials__top">
                         <div class="testimonials__title" data-aos="fade-right">
@@ -802,7 +808,7 @@
                     </div>
                 </div>
                 <div class="testimonials__bottom">
-                    <div class="testimonialslider">
+                    <div class="testimonialslider" data-aos="fade-left" data-aos-delay="300">
                         <div class="swiper testimonials-slider">
                             <div class="swiper-wrapper">
 
