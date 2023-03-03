@@ -54,37 +54,34 @@ $(function () {
     },
   });
 
-  $('.video-play').on('click', function() {
-    $(this).hide();
-    $('.video-poster').hide();
-  })
-
+    // VIDEO ---------------------------------------------- //
+  $('.video').on('click', function() {
+    $(this).find($('.video-play')).hide();
+    $(this).find($('.video-poster')).hide();
+  });
 
 
   // POPUP ---------------------------------------------- //
 
   $('.popup_btn').on('click', function () {
     var indexPopup = $(this).attr('data-popup');
-    $('.popup__window').addClass('hide');
-    $('.' + indexPopup).removeClass('hide');
+    $('.popup__window').removeClass('active');
+    $('.' + indexPopup).addClass('active');
     return false;
 });
 
   $('.popup__close').on('click', function() {
-    $('.popup__window').addClass('hide');
+    $('.popup__window').removeClass('active');
   });
 
-  $('.popup__form').find('input').each( function() {
-    if($(this).text == '') {
-      console.log('good');
-    }
-  });
+
+
 
   // AOS AIMATE -------------------------------------- //
-  AOS.init({
-    disable: 'mobile',
-    duration: 1000,
-    once: true,
-    easing: 'ease'
-  });
+  // AOS.init({
+  //   disable: 'mobile',
+  //   duration: 1000,
+  //   once: true,
+  //   easing: 'ease'
+  // });
 });

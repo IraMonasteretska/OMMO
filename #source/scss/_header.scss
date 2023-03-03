@@ -119,7 +119,7 @@
         justify-content: space-between;
 
         >li {
-            height: 100%;
+            // height: 100%;
             display: flex;
             align-items: center;
 
@@ -157,10 +157,10 @@
             z-index: -1;
             visibility: hidden;
             opacity: 0;
-            transition: .3s;
+            transition: .5s;
             padding: 35px 35px 70px;
             background: #F8F8F8;
-            transform: translateY(15px);
+            transform: translateY(-15px);
 
             /* chrom, safari */
             &::-webkit-scrollbar {
@@ -215,6 +215,7 @@
 
 
 .submenu__col-title {
+    display: block;
     font-weight: 600;
     font-size: 18px;
     line-height: 130%;
@@ -222,6 +223,10 @@
     color: #222222;
     height: 75px;
     text-align: center;
+    transition: .3s;
+}
+a.submenu__col-title:hover{
+    color: #2F9D3A;
 }
 
 .submenu__col-link,
