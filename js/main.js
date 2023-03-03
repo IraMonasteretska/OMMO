@@ -75,6 +75,36 @@ $(function () {
   });
 
 
+//  CHECK FORM ---------------------------------------- //
+
+  // Перевірка стану форми при завантаженні сторінки
+  checkForm();
+
+  // Перевірка стану форми при зміні будь-якого поля
+  $("form :input").change(function() {
+    checkForm();
+  });
+
+function checkForm() {
+  var anyFieldSelected = false;
+  // Ітеруємося по всіх полях форми і перевіряємо, чи є хоча б одне вибране поле
+  $("form :input").not("input[type='text'][placeholder], input[type='password'][placeholder]").each(function() {
+    if ($(this).prop('checked') && $(this).val() !== '') {
+      anyFieldSelected = true;
+    }
+  });
+  // Якщо є вибране поле, активуємо кнопку, інакше - деактивуємо
+  if (anyFieldSelected) {
+    $(".form-btn").prop('disabled', false);
+    console.log('не пусте поле');
+  } else {
+    $(".form-btn").prop('disabled', true);
+    console.log('пусте поле');
+  }
+}
+  
+
+
 
 
   // AOS AIMATE -------------------------------------- //

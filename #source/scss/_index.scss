@@ -426,13 +426,14 @@
     visibility: hidden;
     z-index: -1;
     backdrop-filter: blur(5.5px);
-    background-color: rgba(0,0,0, .2);
+    background-color: rgba(0, 0, 0, .2);
     transition: .3s;
 
     &.active {
         opacity: 1;
         visibility: visible;
         z-index: 999;
+
         .popup__body {
             opacity: 1;
             transform: translateY(0px);
@@ -573,7 +574,93 @@
             filter: brightness(80%);
         }
     }
+
+    .inputfield {
+        margin-bottom: 20px;
+    }
+
+
+    .custom-radio {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .custom-radio+label {
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* create label before  */
+    .custom-radio+label::before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 1px solid #DADADA;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+    }
+
+    /* hover on button */
+    .custom-radio:not(:disabled):not(:checked)+label:hover::before {
+        border-color: #85e58e;
+    }
+
+    /* active button */
+    .custom-radio:not(:disabled):active+label::before {
+        background-color: #2F9D3A;
+        border-color: #2F9D3A;
+    }
+
+
+    /* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+    .custom-radio:focus:not(:checked)+label::before {
+        border-color: #85e58e;
+    }
+
+    /* стили для радиокнопки, находящейся в состоянии checked */
+    .custom-radio:checked+label {
+        &:before {
+            border-color: #2F9D3A;
+            background-image: none;
+        }
+
+        &:after {
+            position: absolute;
+            content: '';
+            background-color: #2F9D3A;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            left: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+    }
+
+    /* стили для радиокнопки, находящейся в состоянии disabled */
+    .custom-radio:disabled+label::before {
+        background-color: #e9ecef;
+    }
 }
+
+.form-btn:disabled {
+    pointer-events: none;
+    background: linear-gradient(0deg, #FFEBB4, #FFEBB4), linear-gradient(87.2deg, #FED66A 0%, #F5C43F 100%);
+    box-shadow: 0px 8px 15px -8px rgba(247, 201, 74, 0.15);
+}
+
 
 //  RESPONSIVE ---------------------------------- //
 
