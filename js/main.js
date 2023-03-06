@@ -1,5 +1,14 @@
 $(function () {
 
+    //  INPUT NUMBER MASK ------------------------ //
+    if ($(".phoneinp").length) {
+      $('.phoneinp').inputmask({
+        "mask": "+(999) 99 999 9999",
+        showMaskOnHover: true,
+        showMaskOnFocus: true,
+      });
+    }
+
   //  SUBMENU ------------------------------------ //
   $('.submenu__col-item').on('click', function () {
     $(this).toggleClass('active');
@@ -117,6 +126,13 @@ $(function () {
       form.find(":submit").prop("disabled", true);
     }
   }
+
+//  AOS  ---------------------------------------- //
+  AOS.init({
+    disable: 'phone',
+    duration: 1000,
+    once: true,
+  });
 
 
   

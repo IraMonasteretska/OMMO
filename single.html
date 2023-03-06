@@ -8,6 +8,7 @@
     <title>Single</title>
     <link rel="icon" type="image/x-icon" href="img/logo_footer.svg">
     <link rel="stylesheet" href="css/lib/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/lib/aos.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -704,7 +705,7 @@
 
             <section class="pagecontent top">
                 <div class="container">
-                    <div class="pagecontent__title">
+                    <div class="pagecontent__title" data-aos="fade-right">
                         <h1>
                             Електромонтажні роботи та<br>обслуговування
                         </h1>
@@ -758,7 +759,7 @@
             <section class="advantages">
                 <div class="container">
                     <div class="advantages__wrapper">
-                        <div class="advantages__col">
+                        <div class="advantages__col" data-aos="fade-right" data-aos-delay="100">
                             <div class="advantages__col-image">
                                 <img src="img/advantages__col_img1.svg" alt="icon">
                             </div>
@@ -773,7 +774,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="advantages__col">
+                        <div class="advantages__col" data-aos="fade-right" data-aos-delay="250">
                             <div class="advantages__col-image">
                                 <img src="img/advantages__col_img2.svg" alt="icon">
                             </div>
@@ -788,7 +789,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="advantages__col">
+                        <div class="advantages__col" data-aos="fade-right" data-aos-delay="400">
                             <div class="advantages__col-image">
                                 <img src="img/advantages__col_img3.svg" alt="icon">
                             </div>
@@ -822,7 +823,7 @@
                     </div>
                 </div>
                 <div class="testimonials__bottom">
-                    <div class="testimonialslider">
+                    <div class="testimonialslider" data-aos="fade-left" data-aos-delay="250">
                         <div class="swiper testimonials__slider">
                             <div class="swiper-wrapper">
 
@@ -1052,7 +1053,7 @@
                         <div class="popup__form">
                             <form>
                                 <input type="text" placeholder="Повне ім’я" required>
-                                <input type="text" placeholder="Номер телефону" required>
+                                <input type="text" class="phoneinp" placeholder="Номер телефону" required>
                                 <button type="submit">Завантажити прайс</button>
                             </form>
                         </div>
@@ -1081,7 +1082,7 @@
                                 <input type="text" placeholder="Прізвище та ім’я" required>
                                 <input type="text" placeholder="Email">
                             </div>
-                            <input type="text" placeholder="Номер телефону" required>
+                            <input type="text" class="phoneinp" placeholder="Номер телефону" required>
                             <input type="text" placeholder="Супроводжувальний лист (необов’язково)">
                             <p>Оберіть тип заявки</p>
 
@@ -1104,6 +1105,8 @@
 
 
     <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.inputmask.js"></script>
+    <script src="js/lib/aos.js"></script>
     <script src="js/lib/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 
