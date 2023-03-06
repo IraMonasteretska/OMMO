@@ -55,7 +55,7 @@ $(function () {
   });
 
     // VIDEO ---------------------------------------------- //
-  $('.video').on('click', function() {
+  $('.testimonials__video').on('click', function() {
     $(this).find($('.video-play')).hide();
     $(this).find($('.video-poster')).hide();
   });
@@ -77,41 +77,49 @@ $(function () {
 
 //  CHECK FORM ---------------------------------------- //
 
-  // Перевірка стану форми при завантаженні сторінки
-  checkForm();
-
-  // Перевірка стану форми при зміні будь-якого поля
-  $("form :input").change(function() {
-    checkForm();
+  // Перевірка стану форм при завантаженні сторінки
+  $("form").each(function() {
+    checkForm($(this));
   });
 
-function checkForm() {
-  var anyFieldSelected = false;
-  // Ітеруємося по всіх полях форми і перевіряємо, чи є хоча б одне вибране поле
-  $("form :input").not("input[type='text'][placeholder], input[type='password'][placeholder]").each(function() {
-    if ($(this).prop('checked') && $(this).val() !== '') {
-      anyFieldSelected = true;
+  // Перевірка стану форм при зміні будь-якого поля
+  $("form :input").on("change keyup", function() {
+    checkForm($(this).closest("form"));
+  });
+
+  function checkForm(form) {
+    // Знаходимо всі поля форми з атрибутом required та radio
+    var requiredFields = form.find(":input[required], :radio");
+  
+    // Перевіряємо кожне поле на заповненість
+    var allFieldsFilled = true;
+    requiredFields.each(function() {
+      if ($(this).val() === "" || $(this).val() === $(this).attr("placeholder")) {
+        allFieldsFilled = false;
+        return false; // Перериваємо цикл each, якщо знайдено порожнє поле
+      }
+    });
+  
+    // Перевіряємо, чи вибрано всі radio
+    var allRadioSelected = true;
+    form.find(":radio").each(function() {
+      var radioName = $(this).attr("name");
+      if (form.find(":radio[name='" + radioName + "']:checked").length === 0) {
+        allRadioSelected = false;
+        return false; // Перериваємо цикл each, якщо знайдено невибраний radio
+      }
+    });
+  
+    // Активуємо/деактивуємо кнопку "Submit"
+    if (allFieldsFilled && allRadioSelected) {
+      form.find(":submit").prop("disabled", false);
+    } else {
+      form.find(":submit").prop("disabled", true);
     }
-  });
-  // Якщо є вибране поле, активуємо кнопку, інакше - деактивуємо
-  if (anyFieldSelected) {
-    $(".form-btn").prop('disabled', false);
-    console.log('не пусте поле');
-  } else {
-    $(".form-btn").prop('disabled', true);
-    console.log('пусте поле');
   }
-}
+
+
   
 
 
-
-
-  // AOS AIMATE -------------------------------------- //
-  // AOS.init({
-  //   disable: 'mobile',
-  //   duration: 1000,
-  //   once: true,
-  //   easing: 'ease'
-  // });
 });

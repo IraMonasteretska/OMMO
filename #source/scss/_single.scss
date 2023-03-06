@@ -18,7 +18,7 @@
     &:before {
         content: "";
         position: absolute;
-        top: 25%;
+        top: 30px;
         left: 0;
         width: 50px;
         height: 4px;
@@ -179,6 +179,9 @@
 }
 
 @media (max-width: 991.8px) {
+    .pagecontent__title:before {
+        top: 17px;
+    }
     .pagecontent__order h3 {
         font-size: 36px;
     }
